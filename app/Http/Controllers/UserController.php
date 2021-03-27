@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class DashboardUserController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        return view('user/index',compact('users'));
+        $user = User::all();
+        return view('user/index',['user' => $user]);
     }
 
     public function laporanUser()
     {
         $users = User::all();
-        return view('user/laporanuser',compact('users'));
+        return view('user/laporanuser');
     }
 }

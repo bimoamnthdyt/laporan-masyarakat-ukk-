@@ -18,8 +18,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'nik',
         'email',
+        'nik',
+        'telp',
         'password',
     ];
 
@@ -40,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pengaduan()
+    {
+        return $this->belongsTo('App\Pengaduan');
+    }
 }

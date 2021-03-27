@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Login - Lapor Dong!</title>
 
     <!-- Custom fonts for this template-->
     <link href="sbadmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,19 +35,13 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
+                            <div class="col-lg-9">
+                                <div class="p-5" style="margin-left: 30%;">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     <form class="form-signin" method="POST" action="{{ route('login') }}">
                                         {{ csrf_field() }}
-
-                                        <label for="inputNik" class="sr-only">Nik</label>
-                                        <input type="nik" name="nik" id="inputNik" class="form-control"
-                                            placeholder="Nomor Induk Keluarga" required autofocus>
-                                        <br>
                                         <label for="inputEmail" class="sr-only">Email address</label>
                                         <input type="email" name="email" id="inputEmail" class="form-control"
                                             placeholder="Masukan Email Anda">

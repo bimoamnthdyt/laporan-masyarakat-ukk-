@@ -17,13 +17,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboarduser', 'DashboardUserController@index')->name('dashboarduser');
-Route::get('/laporanuser', 'DashboardUserController@laporanuser')->name('laporanuser');
 
-Route::get('/register', 'AuthController@getRegister');
-Route::post('/register', 'AuthController@postRegister')->name('register');
 
-Route::get('/login', 'AuthController@getlogin');
-Route::post('/login', 'AuthController@postlogin')->name('login');
+Route::get('/dashboarduser', 'UserController@index')->name('dashboarduser');
+Route::get('/laporanuser', 'UserController@laporanuser')->name('laporanuser');
 
-Route::get('/logout',  'AuthController@logout')->name('logout');
+Route::get('register', 'Auth\RegisterController@getRegister');
+Route::post('register', 'Auth\RegisterController@postRegister')->name('register');
+
+Route::get('login', 'Auth\LoginController@getlogin');
+Route::post('login', 'Auth\LoginController@postlogin')->name('login');
+
+Route::get('logout',  'Auth\LoginController@logout')->name('logout');

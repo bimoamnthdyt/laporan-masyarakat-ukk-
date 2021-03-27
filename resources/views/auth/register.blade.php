@@ -25,78 +25,81 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
-
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
+                    <div class="col-lg-10">
+                        <div class="p-5" style="margin-left: 20%;">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
                             <form class="form-signin" method="POST" action="{{ route('register') }}">
-                                {{ csrf_field() }}
-                                <label for="inputEmail" class="sr-only">Name</label>
-                                <input type="text" name="name" id="inputName" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}"
-                                    placeholder="Masukan Nama Anda" value="{{ old('name') }}" required autofocus>
-                                @if($errors->has('name'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('name') }}
-                                    </div>
-                                @endif
+                                @csrf
+                                <label class="small mb-1" for="name">Nama Lengkap</label>
+                                <input class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                                    type="text" aria-describedby="nameHelp" placeholder="Masukkan Nama Lengkap Anda"
+                                    value="{{ old('name') }}" />
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                 <br>
-                                <label for="inputNik" class="sr-only">Nik</label>
-                                <input type="nik" name="nik" id="inputNik" value="{{ old('nik') }}"
-                                    class="form-control {{ $errors->has('nik') ? 'is-invalid' : ''}}" placeholder="Nomor Induk Keluarga"
-                                    required autofocus>
-                                @if($errors->has('nik'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('nik') }}
-                                    </div>
-                                @endif
+                                <label class="small mb-1" for="email">Email</label>
+                                <input class="form-control @error('email') is-invalid @enderror" id="email" name="email"
+                                    type="email" aria-describedby="emailHelp" placeholder="Masukkan Email Anda"
+                                    value="{{ old('email') }}" />
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                 <br>
-                                <label for="inputEmail" class="sr-only">Email address</label>
-                                <input type="email" name="email" id="inputEmail" value="{{ old('email') }}"
-                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" placeholder="Masukan Email Anda">
-                                @if($errors->has('email'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('email') }}
-                                    </div>
-                                @endif
+                                <label class="small mb-1" for="nik">NIK</label>
+                                <input class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik"
+                                    type="number" aria-describedby="nikHelp" placeholder="Masukkan NIK Anda"
+                                    value="{{ old('nik') }}" />
+                                @error('nik')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                 <br>
-                                <label for="inputPassword" class="sr-only">Password</label>
-                                <input type="password" name="password" id="inputPassword"
-                                    class="form-control {{ $errors->has('password') ? 'is-invalid' : ''}}" placeholder="Password" required>
-                                @if($errors->has('password'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('password') }}
-                                    </div>
-                                @endif
+                                <label class="small mb-1" for="telp">Nomor Telepon</label>
+                                <input class="form-control @error('telp') is-invalid @enderror" id="telp" name="telp"
+                                    type="tel" aria-describedby="telpHelp" placeholder="Masukkan Nomor Telepon Anda" />
+                                @error('telp')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                 <br>
-                                <label for="inputPassword" class="sr-only">Password_Confirmation</label>
-                                <input type="password" name="password_confirmation" id="inputPassword"
-                                    class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : ''}}"
-                                    placeholder="Password Confirmation" required>
-                                @if($errors->has('password_confirmation'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('password_confirmation') }}
-                                    </div>
-                                @endif
+                                <label class="small mb-1" for="password">Password</label>
+                                <input class="form-control @error('password') is-invalid @enderror" id="password"
+                                    name="password" type="password" placeholder="Enter password" />
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                                <br>
+                                <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" autocomplete="new-password"
+                                    placeholder="Confirm password">
                                 <br>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-                                
                             </form>
-                            
+
                             <div class="text-center">
                                 <a class="small" href="{{ route('login')}}">Already have an account? Login!</a>
                             </div>
                             <hr>
                             <div class="text-center">
-                            <p class="mt-5 mb-3 text-muted">&copy; LaporDong 2020 </p>
+                                <p class="mt-5 mb-3 text-muted">&copy; LaporDong 2020 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

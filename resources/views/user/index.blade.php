@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            
+
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
@@ -78,7 +78,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-         
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -130,8 +130,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span
-                                    class="mr-2 d-none d-lg-inline text-gray-600 small">tes</span>
+                                @foreach ($user as $u)
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $u->name }}</span>
+                                @endforeach
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -155,7 +156,7 @@
                                     keluar
                                 </a>
                             </div>
-                            
+
                         </li>
                     </ul>
 

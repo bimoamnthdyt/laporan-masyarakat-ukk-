@@ -217,7 +217,7 @@ body {
 }
 
 .custom-footer .alamat {
-  margin-left: 1em;
+  padding: 10px;
 }
 
 .custom-footer .alamat p {

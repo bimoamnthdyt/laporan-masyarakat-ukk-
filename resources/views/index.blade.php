@@ -1,5 +1,28 @@
-
 @extends('layout.main')
+
+@section('google_marker')
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+    function initialize() {
+        var propertiPeta = {
+            center: new google.maps.LatLng(-6.3841183,106.8697838,21),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(-6.3841183,106.8697838,21),
+            map: peta
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+@endsection
 
 @section('title','LAPOR DONG! - Layanan Pengaduan Online Masyarakat')
 
@@ -42,13 +65,14 @@
         <div class="box4">
 
         </div>
-        <div>
-            <div class="alamat">
-                <h4>LAPOR DONG!</h4>
-                <p>28 market St.20193 San Fransisco<br>California Suit #201</p>
-              
-            </div>
-        </div>
     </div>
-</footer>
-@endsection
+    <footer>
+        <div class="alamat">
+            <div class="text-center">
+                <h4>LAPOR DONG!</h4>
+                <p>Curug, Kec. Cimanggis, Kota Depok <br> Jawa Barat 16453</p>
+            </div>
+            <div id="googleMap" style="width:100%; height:450px;"></div>
+        </div>
+    </footer>
+    @endsection
